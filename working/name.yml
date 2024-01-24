@@ -1,0 +1,16 @@
+name: L06_exercise Q2
+
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+
+jobs:
+  check-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - run: |
+        if ! grep -q "Dominik" README.md; then
+          exit 1
+        fi
